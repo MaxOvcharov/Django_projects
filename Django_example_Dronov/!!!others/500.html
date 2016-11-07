@@ -1,0 +1,7 @@
+{% extends "login_logout.html" %}
+{% block title %}Ошибка 500{% endblock %}
+{% block ll %}
+  <h2>Ошибка 500</h2>
+  <p>Внутренняя ошибка сайта. Сообщите о ней администратору.</p>
+  <p><a href="{{ url "contacts" }}">Контакты</a></p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content_Type" content="text/html"; charset="utf-8">
+		<link rel="stylesheet" type="text/css" href='{% static "main.css" %}'>
+		<title> {% block title %} {% endblock%}} :: Все для уборки </title>
+	</head>
+	<body>
+		<div id="header"> <h1>Все для уборки</h1> </div>
+		<div id="leftmenu">
+			<ul>
+				{% for cat in cats %}
+					<li> <a href="{% url 'index' cat_id=cat.id %}">{{ forloop.counter }}:{{ cat.name }}</a></li>
+					{% empty %}
+						<p>Список категорий пуст.</p>
+				{% endfor %}
+			</ul>	
+		</div>
+		<div id="main">
+			{% block main%}
+			{% endblock%}
+		</div>
+		<div id="footer">
+			<p> Все права принадлежат разработчикам сайта.</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+# MySQL
+DATABASES = {
+  'default': {
+    'ENGINE': 'mysql.connector.django',
+    'NAME': 'site',
+    'USER': 'site',
+    'PASSWORD': 'site',
+    'HOST': '127.0.0.1',
+  }
+}
+
+# PostgreSQ:
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'site',
+    'USER': 'site',
+    'PASSWORD': 'site',
+    'HOST': '127.0.0.1',
+  }
+}

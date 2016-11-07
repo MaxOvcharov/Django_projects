@@ -1,0 +1,30 @@
+LoadModule wsgi_module modules/mod_wsgi.so
+
+Alias /media/ C:/Sites/broomtrade/uploads/
+Alias /static/admin/ C:/Python33/Lib/site-packages/django/contrib/admin/static/admin/
+Alias /static/ C:/Sites/broomtrade/static/
+
+<Directory C:/Sites/broomtrade/static>
+Order deny,allow
+Allow from all
+</Directory>
+
+<Directory C:/Python33/Lib/site-packages/django/contrib/admin/static/admin>
+Order deny,allow
+Allow from all
+</Directory>
+
+<Directory C:/Sites/broomtrade/uploads>
+Order deny,allow
+Allow from all
+</Directory>
+
+WSGIScriptAlias / C:/Sites/broomtrade/broomtrade/wsgi.py
+WSGIPythonPath C:/Sites/broomtrade
+
+<Directory C:/Sites/broomtrade/broomtrade>
+<Files wsgi.py>
+Order deny,allow
+Allow from all
+</Files>
+</Directory>

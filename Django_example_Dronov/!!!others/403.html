@@ -1,0 +1,7 @@
+{% extends "login_logout.html" %}
+{% block title %}Ошибка 403{% endblock %}
+{% block ll %}
+  <h2>Ошибка 403</h2>
+  <p>У вас недостаточно прав для выполнения этой операции.</p>
+  <p><a href="{% url "login" %}">Войти на сайт</a></p>
+{% endblock %}

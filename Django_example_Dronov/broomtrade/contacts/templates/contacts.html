@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block title %}Контакты{% endblock %}
+{% block main %}
+  {% include "generic/messages.html" %}
+  <h2>Контакты</h2>
+  <h3>Телефоны:</h3>
+  <ul>
+    <li>директор: ХХХХХХХХХХ;</li>
+    <li>отдел продаж: ХХХХХХХХХХ;</li>
+    <li>бухгалтерия: ХХХХХХХХХХ.</li>
+  </ul>
+  <h3>Электронная почта:</h3>
+  <ul>
+    <li>директор: <a href="mailto:chief@someserver.ru">chief@someserver.ru</a>;</li>
+    <li>отдел продаж: <a href="mailto:sales@someserver.ru">sales@someserver.ru</a>;</li>
+    <li>бухгалтерия: <a href="mailto:finances@someserver.ru">finances@someserver.ru</a>.</li>
+  </ul>
+  <p>По поводу неполадок в работе сайта обращайтесь по адресу
+  <a href="mailto:admin@someserver.ru">admin@someserver.ru</a>.</p>
+  <h3>Подпишитесь на наш список рассылки</h3>
+  <div class="form">
+    <form action="" method="post">
+      {% include "generic/form.html" %}
+      <div class="submit-button"><input type="submit" value="Подписаться"></div>
+    </form>
+  </div>
+{% endblock %}

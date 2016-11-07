@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}{{ good.name }}::{{ good.category.name }}{% endblock %}
+{% block main %}
+	<h2> {{ good.name }}</h2>
+	<p class="category"><b>Категория: {{ good.category.name }}</b></p>
+	<p>{{ good.description|linebreaksbr }}</p>
+	<p>{% if not good.in_stock %} Нет в наличии {% endif %}</p>
+	<p class="not-in-stock"><a href="{% url 'index' good.category.id%}?page={{ pn }}"> Назад </a></p>	
+{% endblock %}			
+		
