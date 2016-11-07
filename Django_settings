@@ -1,0 +1,67 @@
+1) Установка и настройка postgres - https://habrahabr.ru/post/168601/
+wget http://ftp.postgresql.org/pub/source/v9.2.2/postgresql-9.2.2.tar.gz
+tar xzf postgresql-9.2.2.tar.gz /opt/postgresql-9.2.2
+
+# По умолчанию файлы базы будут установлены в директорию /usr/local/pgsql
+# Перед сборкой можно указать компилятор С++
+export CC=gcc
+
+# Сборка postgesql от root
+cd postgresql-9.2.2
+./configure --without-readline
+sudo make install clean
+
+# создадим специального пользователя
+sudo useradd postgres -p postgres -U -m
+
+# Даем права на директорию
+sudo chown -R postgres:postgres /usr/local/pgsql
+
+# Инициализируем кластер баз дынных
+initdb -D /usr/local/pgsql/data
+
+# Добавить запуск PostgreSQL в автостарт
+sudo cp ./postgresql-9.2.2/contrib/start-scripts/linux /etc/init.d/postgres
+sudo update-rc.d postgres defaults - Debian
+sudo chkconfig --add /etc/init.d/postgres
+##################################################################################################################
+2) Создаем базу данных и пользователя
+https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
+
+sudo su - postgres
+psql
+CREATE DATABASE myproject;
+CREATE USER myprojectuser WITH PASSWORD 'password';
+
+# We are setting the default encoding to UTF-8, which Django expects. We are also setting the default transaction
+# isolation scheme to "read committed", which blocks reads from uncommitted transactions. Lastly, we are setting
+# the timezone. By default, our Django projects will be set to use UTC:
+
+ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
+ALTER ROLE myprojectuser SET timezone TO 'UTC';
+
+# Now, all we need to do is give our database user access rights to the database we created:
+GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+
+# Configure the Django Database Settings
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+# Migrate the Database and Test your Project
+cd ~/myproject - имя проекта Django
+python manage.py makemigrations
+python manage.py migrate
+
+# After creating the database structure, we can create an administrative account by typing:
+python manage.py createsuperuser
