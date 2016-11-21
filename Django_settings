@@ -18,6 +18,8 @@ sudo useradd postgres -p postgres -U -m
 sudo chown -R postgres:postgres /usr/local/pgsql
 
 # Инициализируем кластер баз дынных
+/usr/lib/postgresql/9.5/bin/initdb -D /usr/local/pgsql/data
+                     или
 initdb -D /usr/local/pgsql/data
 
 # Добавить запуск PostgreSQL в автостарт
