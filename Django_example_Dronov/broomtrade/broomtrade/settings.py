@@ -115,8 +115,8 @@ THUMBNAIL_ALIASES = {
   },
 }
 
-ADMINS = (,)
-MANAGERS = (,)
+ADMINS = ( , )
+MANAGERS = ( , )
 
 # EMAIL_HOST = ""
 # EMAIL_HOST_USER = ""
