@@ -81,3 +81,17 @@ python manage.py runserver
 
 # Создание приложения
 python manage.py startapp polls
+
+# Команда sqlmigrate не применяет миграцию к базе данных - она просто выводит запросы на экран,
+# чтобы вы могли увидеть какой SQL создает Django.
+python manage.py sqlmigrate sqlmigrate <Имя приложения> <Номер, например 0001>
+
+# Команда ищет проблемы в вашем проекте не применяя миграции и не изменяя базу данных.
+python manage.py check
+
+# Если вы не знаете где лежат исходники Django, выполните следующую команду:
+python -c "
+import sys
+sys.path = sys.path[1:]
+import django
+print(django.__path__)"
