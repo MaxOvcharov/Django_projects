@@ -67,3 +67,6 @@ python manage.py migrate
 
 # After creating the database structure, we can create an administrative account by typing:
 python manage.py createsuperuser
+
+# Проверка структуры sql для созданой модели в БД
+python manage.py sqlmigrate <app name> 0001_initial
