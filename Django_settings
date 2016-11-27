@@ -74,11 +74,9 @@ python manage.py migrate
 
 # Создание пользователя с админскими правами
 python manage.py createsuperuser
-<<<<<<< HEAD
 
 # Проверка структуры sql для созданой модели в БД
 python manage.py sqlmigrate <app name> 0001_initial
-=======
 <Ввести пароль>
 
 # Запуск сервера
