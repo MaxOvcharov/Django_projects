@@ -6,6 +6,7 @@ tar -xvzf postgresql-9.6.2.tar.gz -C /opt/postgresql-9.6.2
 Или самый простой вариант с автонастройками всего:
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install postgresql-server-dev-*
 
 # По умолчанию файлы базы будут установлены в директорию /usr/local/pgsql
 # Перед сборкой можно указать компилятор С++
