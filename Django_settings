@@ -105,4 +105,8 @@ sys.path = sys.path[1:]
 import django
 print(django.__path__)"
 
+# Команда для перезаписи миграций для приложения
+python manage.py migrate --fake myappname zero
+#после необходимо
+python manage.py migrate myappname
 
