@@ -32,6 +32,13 @@ initdb -D /usr/local/pgsql/data
 sudo cp ./postgresql-9.2.2/contrib/start-scripts/linux /etc/init.d/postgres
 sudo update-rc.d postgres defaults - Debian
 sudo chkconfig --add /etc/init.d/postgres
+
+# Удаление строк из таблицы(связанных таблиц)
+TRUNCATE <table1>, <table2> CASCADE;
+
+# Сброс автоинкремента счетчика ID
+ALTER SEQUENCE <table1>_id_seq RESTART WITH 1;
+
 ##################################################################################################################
 2) Создаем базу данных и пользователя
 https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
